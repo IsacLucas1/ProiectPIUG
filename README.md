@@ -1,9 +1,3 @@
-<div align="center">
-	<h1>Descoperă România 🇷🇴</h1>
-	<p><strong>Un mic portal static care te inspiră să călătorești mai mult prin România.</strong><br/>Rapid, responsive, ușor de extins.</p>
-	<img src="https://placehold.co/960x260/8b5e34/e8dcc2?text=Descopera+Romania" alt="Banner" />
-</div>
-
 ## ✨ De ce acest proiect?
 România are locuri superbe pe care mulți le descoperă întâmplător. Acest site demonstrează cât de repede poți construi o experiență clară pentru prezentare de destinații, hărți, video și contact – fără backend, doar HTML/CSS/JS modern. Perfect pentru un proiect universitar, un prototip de portal turistic sau baza pentru ceva mai mare.
 
@@ -39,7 +33,7 @@ assets/img/           # Imagini (personalizabile)
 - Video: schimbă ID‑ul după `/embed/`
 - Formular: ajustează regulile în `main.js`
 
-## 📈 Analytics (opțional)
+## 📈 Analytics 
 Există un snippet GA4 comentat. Pentru activare:
 1. Ia Measurement ID (`G-XXXXXX`).
 2. Înlocuiește placeholder-ul.
@@ -52,21 +46,6 @@ Pur și simplu deschizi `index.html` în browser. Pentru live hosting rapid:
 3. Activează GitHub Pages (branch `main`, root folder)
 4. Gata – site static online
 
-## 🌱 Idei de extindere
-- Înlocuire carusel cu Swiper / Glide pentru gesturi touch
-- Micro backend (ex: Firebase) pentru salvarea mesajelor
-- Pagini multi‑lingve (RO/EN)
-- Optimizare imagini + lazy loading dedicat
-- Integrare hărți Leaflet pentru mai mult control
-
-## 🤝 Contribuții
-Pull request‑urile pentru destinații noi, îmbunătățiri de accesibilitate sau optimizări sunt binevenite. Păstrează stilul simplu și clar.
-
-## 📜 Licență
-Adaugă aici licența dorită (ex: MIT) dacă vrei distribuire publică.
-
-## ❤️ Mulțumiri
-Oricui promovează turismul responsabil în România. Actualizează, adaptează, distribuie – scopul e să inspirăm călătorii.
-
 ---
 <em>„Descoperă România” – un punct de pornire. Restul îl scrii tu.</em>
+
