@@ -1,47 +1,72 @@
-# Descoperă România — site static (5 pagini)
+<div align="center">
+	<h1>Descoperă România 🇷🇴</h1>
+	<p><strong>Un mic portal static care te inspiră să călătorești mai mult prin România.</strong><br/>Rapid, responsive, ușor de extins.</p>
+	<img src="https://placehold.co/960x260/8b5e34/e8dcc2?text=Descopera+Romania" alt="Banner" />
+</div>
 
-Site web despre locuri de vizitat în România, format din 5 pagini:
+## ✨ De ce acest proiect?
+România are locuri superbe pe care mulți le descoperă întâmplător. Acest site demonstrează cât de repede poți construi o experiență clară pentru prezentare de destinații, hărți, video și contact – fără backend, doar HTML/CSS/JS modern. Perfect pentru un proiect universitar, un prototip de portal turistic sau baza pentru ceva mai mare.
 
-- `index.html` — Acasă: hero + carusel, link-uri către celelalte pagini
-- `destinatii.html` — Destinații: căutare + filtre (chip-uri), carduri
-- `tabel.html` — Hartă destinații: Google Maps embedded, schimbă zona cu etichete (chip-uri)
-- `video.html` — Video YouTube (nocookie)
-- `contact.html` — Formular cu validare (email, telefon RO, câmpuri obligatorii)
+## 🧭 Ce găsești aici
+- Pagina Acasă cu hero, carusel și call‑to‑action
+- Listă filtrabilă de destinații (căutare textuală + tag‑uri)
+- Hartă dinamică (Google Maps embed cu zone schimbabile)
+- Pagină video (YouTube embed privacy‑friendly)
+- Formular de contact validat (email, telefon RO, câmpuri obligatorii)
+- Mod Întunecat/Luminos cu preferință salvată
+- Navigație sticky + evidențiere automată a paginii curente
+- Butoane flotante Sus/Jos și un mic dialog „Ajutor”
 
-Funcționalități cheie:
-- Bară de navigare fixă cu evidențierea butonului activ (în funcție de pagina curentă)
-- Carusel imagini (auto-play, butoane, bullets)
-- Căutare și filtre rapide pentru destinații / tabel
-- Icoane rețele sociale (link-uri placeholder)
-- Help (modal) + butoane UP/DOWN
-- Design responsive + Dark/Light mode cu persistare
-- Google Analytics (GA4) – snippet comentat, cu ID placeholder
+## 🛠️ Tehnologii & abordare
+Doar <strong>HTML + CSS + Vanilla JS</strong>. Fără framework-uri grele. Arhitectură simplă: fiecare pagină își are rolul, iar JS-ul comun (`assets/js/main.js`) activează tema, filtrarea, caruselul și restul interacțiunilor.
 
-## Structura
+## 📂 Structură rapidă
+```
+index.html            # Acasă
+destinatii.html       # Filtre + carduri destinații
+tabel.html            # Hartă + zone mapabile
+video.html            # Embed video
+contact.html          # Formular validat
+assets/css/styles.css # Stiluri + variabile + responsive
+assets/js/main.js     # Interactivitate
+assets/img/           # Imagini (personalizabile)
+```
 
-- `index.html`, `destinatii.html`, `tabel.html`, `video.html`, `contact.html`
-- `assets/css/styles.css` — stiluri (responsive, dark/light, layout)
-- `assets/js/main.js` — interactivitate (carusel, căutare/filtre, validare formular, temă, hartă)
-- `assets/img/` — (opțional) imagini locale
+## 🔍 Personalizare instant
+- Culori: primele variabile din `styles.css` (inclusiv modul dark)
+- Destinații: editează `<article class="card" ...>` și imaginile (înlocuiește placeholder)
+- Hartă: butoanele au `data-q` – adaugă/editează pentru noi zone
+- Video: schimbă ID‑ul după `/embed/`
+- Formular: ajustează regulile în `main.js`
 
-## Google Analytics
+## 📈 Analytics (opțional)
+Există un snippet GA4 comentat. Pentru activare:
+1. Ia Measurement ID (`G-XXXXXX`).
+2. Înlocuiește placeholder-ul.
+3. Decomentează blocul.
 
-Fragmentele GA4 (comentate) există în pagini. Pentru a activa:
-1. Obține Measurement ID (ex: `G-ABCDE12345`).
-2. Înlocuiește `G-XXXXXXXXXX` cu ID-ul tău.
-3. Decomentează blocul de script.
+## 🚀 Cum pornești
+Pur și simplu deschizi `index.html` în browser. Pentru live hosting rapid:
+1. Creează un repo GitHub
+2. Pune fișierele
+3. Activează GitHub Pages (branch `main`, root folder)
+4. Gata – site static online
 
-## Pentru începători (unde modifici ce-ți trebuie)
+## 🌱 Idei de extindere
+- Înlocuire carusel cu Swiper / Glide pentru gesturi touch
+- Micro backend (ex: Firebase) pentru salvarea mesajelor
+- Pagini multi‑lingve (RO/EN)
+- Optimizare imagini + lazy loading dedicat
+- Integrare hărți Leaflet pentru mai mult control
 
-- Culori: vezi `assets/css/styles.css` la începutul fișierului (variabilele CSS din `:root` și din `[data-theme="dark"]`).
-- Carusel (Acasă): în `index.html`, caută comentariul „Carusel imagini”; fiecare `<figure class="slide">` are o imagine (src/alt) și titlu (`<figcaption>`).
-- Destinații (carduri): în `destinatii.html`, fiecare `<article class="card">` are atribute `data-name` și `data-tags` folosite la căutare/filtrare. Înlocuiește imaginile `placehold.co` cu pozele tale.
-- Hartă: în `tabel.html`, etichetele (butonele rotunde) au `data-q` — textul trimis la Google Maps. Poți adăuga locații noi duplicând un buton și schimbând `data-q`.
-- Video: în `video.html`, schimbă ID-ul YouTube după `/embed/`.
-- Formular: în `contact.html` (structura) și `assets/js/main.js` (regulile de validare). Formularul este demo — nu trimite mesaje reale.
+## 🤝 Contribuții
+Pull request‑urile pentru destinații noi, îmbunătățiri de accesibilitate sau optimizări sunt binevenite. Păstrează stilul simplu și clar.
 
-## Notițe
+## 📜 Licență
+Adaugă aici licența dorită (ex: MIT) dacă vrei distribuire publică.
 
-- Căutarea funcționează pe paginile respective: carduri în `destinatii.html`. Pagina `tabel.html` este hartă.
-- Telefon valid: `07xxxxxxxx` sau `+407xxxxxxxx`.
-- Imaginile folosesc `placehold.co` — înlocuiește cu poze proprii din `assets/img/`.
+## ❤️ Mulțumiri
+Oricui promovează turismul responsabil în România. Actualizează, adaptează, distribuie – scopul e să inspirăm călătorii.
+
+---
+<em>„Descoperă România” – un punct de pornire. Restul îl scrii tu.</em>
