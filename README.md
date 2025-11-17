@@ -46,6 +46,5 @@ Pur și simplu deschizi `index.html` în browser. Pentru live hosting rapid:
 3. Activează GitHub Pages (branch `main`, root folder)
 4. Gata – site static online
 
----
-<em>„Descoperă România” – un punct de pornire. Restul îl scrii tu.</em>
+
 
