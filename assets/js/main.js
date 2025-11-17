@@ -78,7 +78,15 @@
   let file = path.split('/').pop() || 'index.html';
   if (!/\.html?$/.test(file)) file = 'index.html';
   const setActiveNav = () => {
-    $$('.nav a').forEach(a => a.classList.toggle('active', hrefEndsWith(a, file)));
+    $$('.nav a').forEach(a => {
+      const isActive = hrefEndsWith(a, file);
+      a.classList.toggle('active', isActive);
+      if (isActive) {
+        a.setAttribute('aria-current', 'page');
+      } else {
+        a.removeAttribute('aria-current');
+      }
+    });
   };
   setActiveNav();
 

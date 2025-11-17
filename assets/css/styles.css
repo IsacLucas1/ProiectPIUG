@@ -170,17 +170,29 @@ h3 {
   color: #000;
   padding: .5rem .75rem;
   border-radius: .5rem;
+  position: relative;
+  transition: background .25s ease, color .25s ease;
 }
 
+/* Active & hover (light mode) */
 .nav a.active,
+.nav a[aria-current="page"],
 .nav a:hover {
-  background: var(--surface);
-  color: var(--border-strong);
+  background: var(--border-strong);
+  color: #fff;
 }
 
 /* Ensure readable color in dark theme */
 [data-theme="dark"] .nav a {
   color: var(--text);
+}
+
+/* Distinct active state in dark theme */
+[data-theme="dark"] .nav a.active,
+[data-theme="dark"] .nav a[aria-current="page"],
+[data-theme="dark"] .nav a:hover {
+  background: var(--border-strong);
+  color: #fff;
 }
 
 .nav-search {
@@ -881,6 +893,14 @@ textarea:focus {
   display: grid;
   gap: .6rem;
   z-index: 1000;
+}
+
+/* Avoid overlapping footer social icons on narrow screens */
+@media (max-width: 640px) {
+  .fab-stack {
+    bottom: 4.5rem; /* lift above social icons */
+    right: .75rem;
+  }
 }
 
 .fab {
