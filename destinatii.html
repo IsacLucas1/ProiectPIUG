@@ -6,10 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Destinații de vizitat în România – caută și filtrează locuri faine." />
   <title>Destinații | Descoperă România</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="assets/css/styles.css" />
+  
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6YFVF4DTG"></script>
   <script>
@@ -54,7 +57,7 @@
       <div class="container">
         <h1>Destinații populare</h1>
         <p class="muted">Caută după nume, regiune sau tip (munte, mare, oraș, delta).</p>
-        <div class="search">
+        <div class="search" style="margin-top:1.25rem;">
           <label for="searchInput" class="visually-hidden">Caută destinații</label>
           <input id="searchInput" type="search" placeholder="Ex: Brașov, mare, Transilvania" autocomplete="off" />
         </div>
@@ -66,6 +69,55 @@
           <button class="chip" data-filter="all">Toate</button>
         </div>
         <p id="searchStatus" class="muted"></p>
+
+        <section id="top5" aria-labelledby="top5Title" style="margin-top:2rem;">
+          <h2 id="top5Title">Top 5 destinații după rating</h2>
+          <div class="table-responsive">
+            <table>
+              <caption class="visually-hidden">Tabel Top 5 destinații după rating</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Loc</th>
+                  <th scope="col">Destinație</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Categorie</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Munții Făgăraș</td>
+                  <td>4.9</td>
+                  <td>Munte</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Delta Dunării</td>
+                  <td>4.8</td>
+                  <td>Delta</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Bucovina</td>
+                  <td>4.8</td>
+                  <td>Regiune</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Sinaia</td>
+                  <td>4.8</td>
+                  <td>Munte</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Sighișoara</td>
+                  <td>4.7</td>
+                  <td>Oraș</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
         <div class="card-grid" id="destGrid">
           <!-- Din carusel: Munții Făgăraș -->
@@ -253,7 +305,6 @@
               <p>Capitala României, mix de istorie, artă și viață urbană.</p>
             </div>
           </article>
-        </div>
         <p class="no-results" hidden>Nicio destinație nu corespunde căutării.</p>
       </div>
     </section>

@@ -1,11 +1,3 @@
-// =============================
-// Main JS pentru "Descoperă România"
-// =============================
-// Ghid rapid pentru începători:
-// - Acest fișier adaugă interactivitate: temă dark/light, meniu mobil, carusel,
-//   căutare+filtre, validarea formularului de contact, butoane sus/jos și harta.
-// - Nu e nevoie să înțelegi tot din prima. Caută titlurile dintre linii de ======
-//   și citește pe rând ce te interesează. Modificările uzuale sunt marcate cu comentarii.
 
 (function () {
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
@@ -262,5 +254,7 @@
     const q = ch.dataset.q;
     if (mapFrame) mapFrame.src = mapSrcFor(q);
   }));
+
+  // (Weather widget removed; original code restored.)
 
 })();

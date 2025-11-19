@@ -33,7 +33,7 @@ assets/img/           # Imagini (personalizabile)
 - Video: schimbă ID‑ul după `/embed/`
 - Formular: ajustează regulile în `main.js`
 
-## 📈 Analytics 
+## 📈 Analytics (opțional)
 Există un snippet GA4 comentat. Pentru activare:
 1. Ia Measurement ID (`G-XXXXXX`).
 2. Înlocuiește placeholder-ul.
@@ -45,6 +45,3 @@ Pur și simplu deschizi `index.html` în browser. Pentru live hosting rapid:
 2. Pune fișierele
 3. Activează GitHub Pages (branch `main`, root folder)
 4. Gata – site static online
-
-
-

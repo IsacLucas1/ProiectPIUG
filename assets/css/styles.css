@@ -375,6 +375,7 @@ h3 {
 
 #searchInput {
   width: 100%;
+  max-width: 320px;
   padding: .9rem 1rem;
   border: 2px solid var(--border-strong);
   border-radius: .75rem;
@@ -747,6 +748,9 @@ td {
 th {
   background: var(--surface);
 }
+
+
+/* Top section split: search/filters left, table right */
 
 /* Video */
 .video-wrap {
