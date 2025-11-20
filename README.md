@@ -18,7 +18,7 @@ Doar <strong>HTML + CSS + Vanilla JS</strong>. Fără framework-uri grele. Arhit
 ```
 index.html            # Acasă
 destinatii.html       # Filtre + carduri destinații
-tabel.html            # Hartă + zone mapabile
+harta.html            # Hartă + zone mapabile
 video.html            # Embed video
 contact.html          # Formular validat
 assets/css/styles.css # Stiluri + variabile + responsive
