@@ -66,6 +66,12 @@ body {
   background: var(--bg);
 }
 
+/* Sticky footer layout: header + main grow + footer at bottom */
+html, body { height: 100%; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1 0 auto; }
+.footer { margin-top: auto; }
+
 img {
   max-width: 100%;
   display: block;
