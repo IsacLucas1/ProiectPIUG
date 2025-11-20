@@ -254,7 +254,4 @@
     const q = ch.dataset.q;
     if (mapFrame) mapFrame.src = mapSrcFor(q);
   }));
-
-  // (Weather widget removed; original code restored.)
-
 })();

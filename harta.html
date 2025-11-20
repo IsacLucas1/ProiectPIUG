@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Contactează-ne pentru informații despre destinații din România." />
-  <title>Contact | Descoperă România</title>
+  <meta name="description" content="Hartă cu destinații din România – vezi pe hartă munte, mare, orașe și Delta." />
+  <title>Hartă | Descoperă România</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/css/styles.css" />
   
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6YFVF4DTG"></script>
   <script>
@@ -24,7 +24,7 @@
   </script>
 </head>
 
-<body data-page="contact">
+<body data-page="harta">
   <a class="skip-link" href="#main">Sari la conținut</a>
   <header class="navbar" id="top">
     <div class="container nav-inner">
@@ -35,7 +35,7 @@
         <ul>
           <li><a class="nav-link" href="index.html">Acasă</a></li>
           <li><a class="nav-link" href="destinatii.html">Destinații</a></li>
-          <li><a class="nav-link" href="harta.html">Hartă</a></li>
+          <li><a class="nav-link" href="harta.html" aria-current="page">Hartă</a></li>
           <li><a class="nav-link" href="video.html">Video</a></li>
           <li><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
@@ -55,46 +55,29 @@
   <main id="main">
     <section class="section hero">
       <div class="container">
-        <h1>Contact</h1>
-        <form id="contactForm" novalidate style="margin-top:1rem">
-          <div class="grid-2">
-            <div class="form-field">
-              <label for="name">Nume</label>
-              <input id="name" name="name" type="text" placeholder="Numele tău" required />
-              <small class="error" aria-live="polite"></small>
-            </div>
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="exemplu@email.com" required />
-              <small class="error" aria-live="polite"></small>
-            </div>
-            <div class="form-field">
-              <label for="phone">Telefon</label>
-              <input id="phone" name="phone" type="tel" placeholder="07xxxxxxxx sau +407xxxxxxxx" required />
-              <small class="error" aria-live="polite"></small>
-            </div>
-            <div class="form-field">
-              <label for="topic">Subiect</label>
-              <select id="topic" name="topic" required>
-                <option value="" disabled selected>Alege...</option>
-                <option value="informatii">Informații</option>
-                <option value="rezervari">Rezervări</option>
-                <option value="feedback">Feedback</option>
-              </select>
-              <small class="error" aria-live="polite"></small>
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="message">Mesaj</label>
-            <textarea id="message" name="message" rows="5" placeholder="Scrie mesajul tău..." required
-              minlength="10"></textarea>
-            <small class="error" aria-live="polite"></small>
-          </div>
-          <div class="form-actions">
-            <button type="submit" class="btn primary">Trimite</button>
-            <p id="formStatus" role="status" aria-live="polite"></p>
-          </div>
-        </form>
+        <h1>Hartă destinații</h1>
+        <p class="muted">Alege o zonă sau un oraș și vezi locația pe hartă.</p>
+
+        <div class="chips" aria-label="Locații sugerate" style="margin-top:1rem">
+          <button class="chip map-chip active" data-q="Romania">Toată România</button>
+          <button class="chip map-chip" data-q="Muntii Fagaras">Munții Făgăraș</button>
+          <button class="chip map-chip" data-q="Delta Dunarii">Delta Dunării</button>
+          <button class="chip map-chip" data-q="Sighisoara">Sighișoara</button>
+          <button class="chip map-chip" data-q="Bucovina">Bucovina</button>
+          <button class="chip map-chip" data-q="Mamaia">Mamaia</button>
+          <button class="chip map-chip" data-q="Brasov">Brașov</button>
+          <button class="chip map-chip" data-q="Sinaia">Sinaia</button>
+          <button class="chip map-chip" data-q="Tulcea">Tulcea</button>
+          <button class="chip map-chip" data-q="Constanta">Constanța</button>
+          <button class="chip map-chip" data-q="Cluj-Napoca">Cluj-Napoca</button>
+          <button class="chip map-chip" data-q="Bucuresti">București</button>
+        </div>
+
+        <div class="video-wrap map-wrap" style="margin-top:1rem">
+          <iframe id="mapFrame" title="Hartă Destinații" src="https://www.google.com/maps?&q=Romania&z=6&output=embed"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
       </div>
     </section>
   </main>
@@ -133,10 +116,11 @@
       </header>
       <div class="modal-content">
         <ul>
-          <li>Completează numele, un email valid și un telefon corect (ex: 07xxxxxxxx sau +407xxxxxxxx).</li>
-          <li>Alege un subiect și scrie un mesaj de minim 10 caractere, apoi apasă Trimite.</li>
-          <li>După trimitere, vei vedea o confirmare pe pagină (simulare).</li>
-          <li>Poți comuta modul Întunecat/Luminos din colțul dreapta‑sus.</li>
+          <li>Alege una dintre etichetele de deasupra hărții (ex: Brașov, Delta Dunării, Bucovina); locația se încarcă
+            automat.</li>
+          <li>Poți mări/micșora harta și o poți trage pentru a explora zona.</li>
+          <li>Pentru lista completă a locurilor, mergi la pagina <a href="destinatii.html">Destinații</a>.</li>
+          <li>Comută modul Întunecat/Luminos din colțul dreapta‑sus.</li>
         </ul>
       </div>
     </form>
