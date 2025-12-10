@@ -3,7 +3,6 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-  // Year in footer
   $('#year').textContent = new Date().getFullYear();
 
   
@@ -12,7 +11,6 @@
   const storedTheme = localStorage.getItem('theme');
   const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  // Apply stored theme (if any)
   if (storedTheme === 'dark') root.setAttribute('data-theme', 'dark');
   if (storedTheme === 'light') root.removeAttribute('data-theme');
 
@@ -22,13 +20,13 @@
   function isDarkTheme() {
     const attr = root.getAttribute('data-theme');
     if (attr) return attr === 'dark';
-    return prefersDark; // fall back to system preference
+    return prefersDark; 
   }
 
   function updateThemeIcon() {
     if (!themeToggle) return;
     const dark = isDarkTheme();
-    themeToggle.innerHTML = dark ? moonSVG : sunSVG; // show icon of current theme
+    themeToggle.innerHTML = dark ? moonSVG : sunSVG; 
     themeToggle.setAttribute('aria-pressed', String(dark));
     themeToggle.setAttribute('title', dark ? 'Mod întunecat' : 'Mod luminos');
   }
@@ -38,16 +36,13 @@
   themeToggle?.addEventListener('click', () => {
     const dark = isDarkTheme();
     if (dark) {
-      // switch to light
       root.removeAttribute('data-theme');
       localStorage.setItem('theme', 'light');
     } else {
-      // switch to dark
       root.setAttribute('data-theme', 'dark');
       localStorage.setItem('theme', 'dark');
     }
     updateThemeIcon();
-    // small icon animation
     themeToggle.classList.add('icon-animate');
     setTimeout(() => themeToggle.classList.remove('icon-animate'), 220);
   });
@@ -59,7 +54,6 @@
     navToggle.setAttribute('aria-expanded', String(!expanded));
     header.classList.toggle('nav-open');
   });
-  // Close mobile menu when clicking a link
   $$('.nav-link').forEach(a => a.addEventListener('click', () => {
     header.classList.remove('nav-open');
     navToggle?.setAttribute('aria-expanded', 'false');
@@ -88,6 +82,7 @@
   const tableRows = $$('#attractionsTable tr');
   const searchStatus = $('#searchStatus');
   const noResults = $('.no-results');
+  const clearBtn = $('#clearFiltersBtn');
 
   let chipFilter = 'all';
   function matchesFilter(text, tags) {
@@ -99,7 +94,6 @@
 
   function applyFilter() {
     let visibleCount = 0;
-    // Cards
     cards.forEach(card => {
       const tags = (card.dataset.tags || '').toLowerCase();
       const text = ((card.dataset.name || '') + ' ' + tags).toLowerCase();
@@ -108,7 +102,6 @@
       if (show) visibleCount++;
     });
 
-    // Table rows
     let visibleRows = 0;
     tableRows.forEach(tr => {
       const tags = (tr.dataset.tags || '').toLowerCase();
@@ -127,6 +120,13 @@
     if (noResults) {
       noResults.hidden = (visibleCount + visibleRows) > 0;
     }
+    
+    // Show/hide clear button
+    const hasText = searchInput?.value.trim().length > 0;
+    const hasChip = chipFilter !== 'all';
+    if (clearBtn) {
+      clearBtn.hidden = !(hasText || hasChip);
+    }
   }
 
   searchInput?.addEventListener('input', applyFilter);
@@ -136,10 +136,22 @@
     chipFilter = ch.dataset.filter || 'all';
     applyFilter();
   }));
-  // If page has search or chips, initialize filter once to set statuses
+  
+  // Clear filters button
+  clearBtn?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    chipFilter = 'all';
+    chips.forEach(c => {
+      c.classList.remove('active');
+      if (c.dataset.filter === 'all') c.classList.add('active');
+    });
+    applyFilter();
+    searchInput?.focus();
+  });
+  
   if (searchInput || chips.length) applyFilter();
 
-  // Optional: read q param if present (supports manual linking like destinatii.html?q=Brasov)
+  
   try {
     const params = new URLSearchParams(location.search);
     const qParam = params.get('q');
@@ -196,7 +208,6 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val);
   }
   function validatePhone(val) {
-    // Romanian mobile: 07xxxxxxxx or +407xxxxxxxx
     return /^(?:\+?40|0)7\d{8}$/.test(val.replace(/\s|-/g, ''));
   }
 
@@ -241,17 +252,28 @@
   });
 
   const mapFrame = $('#mapFrame');
-  const mapChips = $$('.map-chip');
+  const mapSearch = $('#mapSearch');
+  const resetMapBtn = $('#resetMapBtn');
+  
   function mapSrcFor(q) {
     if (!q) q = 'Romania';
     const query = encodeURIComponent(q + ', Romania');
-    // Zoom: 10 for cities/areas, 6 for country (we'll let Google adjust)
     return `https://www.google.com/maps?&q=${query}&output=embed`;
   }
-  mapChips.forEach(ch => ch.addEventListener('click', () => {
-    mapChips.forEach(c => c.classList.remove('active'));
-    ch.classList.add('active');
-    const q = ch.dataset.q;
-    if (mapFrame) mapFrame.src = mapSrcFor(q);
-  }));
+  
+  // Search on Enter key
+  mapSearch?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      const query = mapSearch.value.trim();
+      if (query && mapFrame) {
+        mapFrame.src = mapSrcFor(query);
+      }
+    }
+  });
+  
+  // Reset to Romania
+  resetMapBtn?.addEventListener('click', () => {
+    if (mapFrame) mapFrame.src = mapSrcFor('Romania');
+    if (mapSearch) mapSearch.value = '';
+  });
 })();

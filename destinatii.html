@@ -67,6 +67,7 @@
           <button class="chip" data-filter="oras">Oraș</button>
           <button class="chip" data-filter="delta">Delta</button>
           <button class="chip" data-filter="all">Toate</button>
+          <button id="clearFiltersBtn" class="chip btn-clear-chip" aria-label="Șterge filtrele" title="Șterge filtrele" hidden>Elimină filtrele</button>
         </div>
         <p id="searchStatus" class="muted"></p>
 
@@ -120,7 +121,6 @@
         </section>
 
         <div class="card-grid" id="destGrid">
-          <!-- Din carusel: Munții Făgăraș -->
           <article class="card" data-tags="munte fagaras făgăraș carpati trasee" data-name="Munții Făgăraș"
             data-rating="4.9">
             <img src="assets/img/fagaras.png" alt="Peisaj montan în Munții Făgăraș" />
@@ -138,7 +138,6 @@
               <p>Masive impunătoare, trasee spectaculoase și peisaje alpine.</p>
             </div>
           </article>
-          <!-- Din carusel: Delta Dunării -->
           <article class="card" data-tags="delta natura biodiversitate tulcea" data-name="Delta Dunării"
             data-rating="4.8">
             <img src="assets/img/delta.png" alt="Canale cu stuf în Delta Dunării" />
@@ -156,7 +155,6 @@
               <p>Rezervație a biosferei, paradis pentru păsări și natură sălbatică.</p>
             </div>
           </article>
-          <!-- Din carusel: Sighișoara -->
           <article class="card" data-tags="oras sighisoara transilvania medieval" data-name="Sighișoara"
             data-rating="4.7">
             <img src="assets/img/sighisoara.png" alt="Turnul cu ceas din Sighișoara" />
@@ -174,7 +172,6 @@
               <p>Cetate medievală unică, patrimoniu UNESCO în Transilvania.</p>
             </div>
           </article>
-          <!-- Din carusel: Bucovina -->
           <article class="card" data-tags="bucovina manastiri patrimoniu traditii" data-name="Bucovina"
             data-rating="4.8">
             <img src="assets/img/bucovina.png" alt="Mănăstiri pictate din Bucovina" />
@@ -192,7 +189,6 @@
               <p>Renumită pentru mănăstirile pictate și peisaje rurale autentice.</p>
             </div>
           </article>
-          <!-- Din carusel: Mamaia -->
           <article class="card" data-tags="mare mamaia constanta litoral plaja" data-name="Mamaia" data-rating="4.4">
             <img src="assets/img/mamaia.png" alt="Plajă întinsă la Mamaia" />
             <div class="card-body">

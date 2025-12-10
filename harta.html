@@ -56,21 +56,14 @@
     <section class="section hero">
       <div class="container">
         <h1>Hartă destinații</h1>
-        <p class="muted">Alege o zonă sau un oraș și vezi locația pe hartă.</p>
+        <p class="muted">Caută o destinație sau alege Toată România pentru a vedea harta completă.</p>
 
-        <div class="chips" aria-label="Locații sugerate" style="margin-top:1rem">
-          <button class="chip map-chip active" data-q="Romania">Toată România</button>
-          <button class="chip map-chip" data-q="Muntii Fagaras">Munții Făgăraș</button>
-          <button class="chip map-chip" data-q="Delta Dunarii">Delta Dunării</button>
-          <button class="chip map-chip" data-q="Sighisoara">Sighișoara</button>
-          <button class="chip map-chip" data-q="Bucovina">Bucovina</button>
-          <button class="chip map-chip" data-q="Mamaia">Mamaia</button>
-          <button class="chip map-chip" data-q="Brasov">Brașov</button>
-          <button class="chip map-chip" data-q="Sinaia">Sinaia</button>
-          <button class="chip map-chip" data-q="Tulcea">Tulcea</button>
-          <button class="chip map-chip" data-q="Constanta">Constanța</button>
-          <button class="chip map-chip" data-q="Cluj-Napoca">Cluj-Napoca</button>
-          <button class="chip map-chip" data-q="Bucuresti">București</button>
+        <div style="margin-top:1rem;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;width:100%;">
+          <div style="flex:1;max-width:600px;">
+            <label for="mapSearch" class="visually-hidden">Caută pe hartă</label>
+            <input id="mapSearch" type="search" placeholder="Ex: Brașov, Sighișoara, Delta Dunării..." autocomplete="off" style="width:100%;padding:.9rem 1rem;border:2px solid var(--border-strong);border-radius:.75rem;background:var(--surface);color:var(--text);" />
+          </div>
+          <button id="resetMapBtn" class="chip map-chip" data-q="Romania" style="white-space:nowrap;">Toată România</button>
         </div>
 
         <div class="video-wrap map-wrap" style="margin-top:1rem">
